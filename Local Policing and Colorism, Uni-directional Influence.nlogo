@@ -1,7 +1,8 @@
 ;; models the transference of colorism in one direction, police learn from cpolice.
 ;; Written in NetLogo
 ;; Author: Henry Smart
-;; Creation Date: December 3, 2016
+;; Creation Date: April 9, 2016
+;; Last Update: December 6, 2017
 
 globals [
   free-patches             ;; space, group of patches that represent the ideal (free) space for citizen-agents
@@ -193,12 +194,12 @@ if not any? turtles with [pcolor = white and shape = "person"] [stop]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-170
+169
 10
-967
-828
-30
-30
+888
+750
+27
+27
 12.902
 1
 10
@@ -209,10 +210,10 @@ GRAPHICS-WINDOW
 0
 0
 1
--30
-30
--30
-30
+-27
+27
+-27
+27
 1
 1
 1
@@ -279,7 +280,7 @@ SLIDER
 #-of-lights
 0
 800
-800
+393
 1
 1
 NIL
@@ -293,8 +294,8 @@ SLIDER
 #-of-mediums
 #-of-mediums
 0
-320
-320
+400
+393
 1
 1
 NIL
@@ -308,8 +309,8 @@ SLIDER
 #-of-darks
 #-of-darks
 0
-269
-269
+400
+393
 1
 1
 NIL
@@ -324,17 +325,17 @@ SLIDER
 #-of-cpolice
 0
 25
-25
+0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
--7
-280
-165
-313
+-1
+274
+171
+307
 #-of-police
 #-of-police
 0
@@ -496,7 +497,7 @@ Reference: Van Maanen, J. (1975). Police socialization: A longitudinal examinati
 Reference: Lupton, D. (1999). Risk: key ideas. Risk: key ideas. Routledge.
 
 Creation Date: 4/9/16
-Last Updated: 10/26/17
+Last Updated: 12/6/17
 Author: Henry Smart, III
 Email: hsmartiii@gmail.com
 
@@ -816,16 +817,16 @@ Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 
 @#$#@#$#@
-NetLogo 5.3.1
+NetLogo 5.3
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
 <experiments>
-  <experiment name="Logic 1 - Equal Number of CPolice and Police" repetitions="50" runMetricsEveryStep="true">
+  <experiment name="Counterbalancing 12-6-17" repetitions="100" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
     <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
-    <timeLimit steps="4000"/>
+    <timeLimit steps="1589"/>
     <metric>count cpolices with [pcolor = white]</metric>
     <metric>count polices with [pcolor = white]</metric>
     <metric>count darks with [pcolor = white]</metric>
@@ -850,11 +851,11 @@ NetLogo 5.3.1
       <value value="3"/>
     </enumeratedValueSet>
   </experiment>
-  <experiment name="Logic 2 - More CPolice than Police" repetitions="100" runMetricsEveryStep="true">
+  <experiment name="Passive Incrementalism 12-6-17" repetitions="100" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
     <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
-    <timeLimit steps="4000"/>
+    <timeLimit steps="1589"/>
     <metric>count cpolices with [pcolor = white]</metric>
     <metric>count polices with [pcolor = white]</metric>
     <metric>count darks with [pcolor = white]</metric>
@@ -879,11 +880,11 @@ NetLogo 5.3.1
       <value value="2"/>
     </enumeratedValueSet>
   </experiment>
-  <experiment name="Logic 3 - More Police than CPolice" repetitions="50" runMetricsEveryStep="true">
+  <experiment name="Aggressive Dilution 12-6-17" repetitions="100" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
-    <final>if all? darks [pcolor = red] [stop]</final>
-    <timeLimit steps="1500"/>
+    <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
+    <timeLimit steps="1589"/>
     <metric>count cpolices with [pcolor = white]</metric>
     <metric>count polices with [pcolor = white]</metric>
     <metric>count darks with [pcolor = white]</metric>
@@ -892,9 +893,6 @@ NetLogo 5.3.1
     <metric>count mediums with [pcolor = red]</metric>
     <metric>count lights with [pcolor = white]</metric>
     <metric>count lights with [pcolor = red]</metric>
-    <metric>(count darks with [pcolor = red] / count darks with [pcolor = white])</metric>
-    <metric>(count mediums with [pcolor = red] / count mediums with [pcolor = white])</metric>
-    <metric>(count lights with [pcolor = red] / count lights with [pcolor = white])</metric>
     <enumeratedValueSet variable="#-of-lights">
       <value value="393"/>
     </enumeratedValueSet>
@@ -911,11 +909,11 @@ NetLogo 5.3.1
       <value value="4"/>
     </enumeratedValueSet>
   </experiment>
-  <experiment name="Logic 4 - Total Biased Policing" repetitions="100" runMetricsEveryStep="true">
+  <experiment name="Do-Nothing 12-6-17" repetitions="100" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
     <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
-    <timeLimit steps="4000"/>
+    <timeLimit steps="1589"/>
     <metric>count cpolices with [pcolor = white]</metric>
     <metric>count polices with [pcolor = white]</metric>
     <metric>count darks with [pcolor = white]</metric>
@@ -940,10 +938,11 @@ NetLogo 5.3.1
       <value value="0"/>
     </enumeratedValueSet>
   </experiment>
-  <experiment name="Lgoic 5 - Total Fair Policing" repetitions="50" runMetricsEveryStep="true">
+  <experiment name="Utopia 12-6-17" repetitions="100" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
     <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
+    <timeLimit steps="1589"/>
     <metric>count cpolices with [pcolor = white]</metric>
     <metric>count polices with [pcolor = white]</metric>
     <metric>count darks with [pcolor = white]</metric>
@@ -960,150 +959,6 @@ NetLogo 5.3.1
     </enumeratedValueSet>
     <enumeratedValueSet variable="#-of-darks">
       <value value="393"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-cpolice">
-      <value value="0"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-police">
-      <value value="6"/>
-    </enumeratedValueSet>
-  </experiment>
-  <experiment name="Logic 6 - U.S. Population - Equal Number of CPolice and Police" repetitions="100" runMetricsEveryStep="true">
-    <setup>setup</setup>
-    <go>go</go>
-    <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
-    <timeLimit steps="4000"/>
-    <metric>count cpolices with [pcolor = white]</metric>
-    <metric>count polices with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = red]</metric>
-    <metric>count mediums with [pcolor = white]</metric>
-    <metric>count mediums with [pcolor = red]</metric>
-    <metric>count lights with [pcolor = white]</metric>
-    <metric>count lights with [pcolor = red]</metric>
-    <enumeratedValueSet variable="#-of-lights">
-      <value value="796"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-mediums">
-      <value value="218"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-darks">
-      <value value="167"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-cpolice">
-      <value value="3"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-police">
-      <value value="3"/>
-    </enumeratedValueSet>
-  </experiment>
-  <experiment name="Logic 7 - U.S. Population - More CPolice than Police" repetitions="50" runMetricsEveryStep="true">
-    <setup>setup</setup>
-    <go>go</go>
-    <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
-    <metric>count cpolices with [pcolor = white]</metric>
-    <metric>count polices with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = red]</metric>
-    <metric>count mediums with [pcolor = white]</metric>
-    <metric>count mediums with [pcolor = red]</metric>
-    <metric>count lights with [pcolor = white]</metric>
-    <metric>count lights with [pcolor = red]</metric>
-    <enumeratedValueSet variable="#-of-darks">
-      <value value="167"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-mediums">
-      <value value="218"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-lights">
-      <value value="796"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-cpolice">
-      <value value="4"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-police">
-      <value value="2"/>
-    </enumeratedValueSet>
-  </experiment>
-  <experiment name="Logic 8 - U.S. Population - More Police than CPolice" repetitions="100" runMetricsEveryStep="true">
-    <setup>setup</setup>
-    <go>go</go>
-    <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
-    <timeLimit steps="4000"/>
-    <metric>count cpolices with [pcolor = white]</metric>
-    <metric>count polices with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = red]</metric>
-    <metric>count mediums with [pcolor = white]</metric>
-    <metric>count mediums with [pcolor = red]</metric>
-    <metric>count lights with [pcolor = white]</metric>
-    <metric>count lights with [pcolor = red]</metric>
-    <enumeratedValueSet variable="#-of-lights">
-      <value value="796"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-mediums">
-      <value value="218"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-darks">
-      <value value="167"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-cpolice">
-      <value value="2"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-police">
-      <value value="4"/>
-    </enumeratedValueSet>
-  </experiment>
-  <experiment name="Logic 9 - U.S. Population - Total Biased Policing" repetitions="50" runMetricsEveryStep="true">
-    <setup>setup</setup>
-    <go>go</go>
-    <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
-    <timeLimit steps="4000"/>
-    <metric>count cpolices with [pcolor = white]</metric>
-    <metric>count polices with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = red]</metric>
-    <metric>count mediums with [pcolor = white]</metric>
-    <metric>count mediums with [pcolor = red]</metric>
-    <metric>count lights with [pcolor = white]</metric>
-    <metric>count lights with [pcolor = red]</metric>
-    <enumeratedValueSet variable="#-of-lights">
-      <value value="796"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-mediums">
-      <value value="218"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-darks">
-      <value value="167"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-cpolice">
-      <value value="6"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-police">
-      <value value="0"/>
-    </enumeratedValueSet>
-  </experiment>
-  <experiment name="Logic 10 - U.S. Population - Total Fair Policing" repetitions="100" runMetricsEveryStep="true">
-    <setup>setup</setup>
-    <go>go</go>
-    <final>if not any? turtles with [pcolor = white and shape = "person"] [stop]</final>
-    <timeLimit steps="4000"/>
-    <metric>count cpolices with [pcolor = white]</metric>
-    <metric>count polices with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = white]</metric>
-    <metric>count darks with [pcolor = red]</metric>
-    <metric>count mediums with [pcolor = white]</metric>
-    <metric>count mediums with [pcolor = red]</metric>
-    <metric>count lights with [pcolor = white]</metric>
-    <metric>count lights with [pcolor = red]</metric>
-    <enumeratedValueSet variable="#-of-lights">
-      <value value="796"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-mediums">
-      <value value="218"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="#-of-darks">
-      <value value="167"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="#-of-cpolice">
       <value value="0"/>
